@@ -1,6 +1,6 @@
-# data and models are hosted elsewhere
+
 data/raw/
-*.pt
+.pt
 *.bin
 *.safetensors
 *.joblib

@@ -1,0 +1,91 @@
+﻿class,feature,weight
+clean,word:bố mẹ,4.655826938622909
+clean,word:cha mẹ,2.992254531976286
+clean,word:bọn điên,2.8769107290510445
+clean,word:mẹ đẻ,2.6209209179738577
+clean,word:sống chó,2.210531309382284
+clean,word:cmnr,2.19870049582043
+clean,word:vl,2.1583212704550356
+clean,word:thì lại,1.9986732026838148
+clean,word:đồng dâm,1.9918228415954802
+clean,word:xe tàu,1.8849312525730821
+clean,word:dâm nhé,1.7979336369867391
+clean,word:chó mua,1.7950543907775947
+clean,word:cmn,1.7818207753268647
+clean,word:ăn chặt,1.745792074799448
+clean,word:thằng này,1.6988390895867633
+clean,word:làm là,1.6411492797620109
+clean,word:tới chết,1.6193986121835093
+clean,char:vl,1.6177532660796763
+clean,char: vl,1.601372509610802
+clean,word:vkl,1.574711733268299
+clean,word:phải tự,1.573645671603463
+clean,word:từ đầu,1.5584162689782057
+clean,word:vcl,1.555641646801032
+clean,word:chết cha,1.53918775073998
+clean,word:cái trò,1.5293024105194957
+clean,word:ông này,1.5202400209396416
+clean,word:trẻ con,1.5058673083253693
+clean,word:khó,1.483066653710595
+clean,word:gọi là,1.4825876521522035
+clean,word:bám,1.4715608783509833
+offensive,word:ngu,10.900849835537173
+offensive,word:vãi,10.204982735949294
+offensive,word:mẹ,9.267439926360863
+offensive,word:éo,8.193248917864373
+offensive,word:mịa,6.69736024762259
+offensive,word:cứt,6.424355685998966
+offensive,word:đéo,6.241262884088939
+offensive,word:cmnl,6.224196316452513
+offensive,word:shit,5.622884599659582
+offensive,char:vãi,5.573252537044696
+offensive,char: vãi,5.517072887064449
+offensive,char: ngu ,5.457533453344659
+offensive,char:vã,5.445544744911854
+offensive,word:khổ dâm,5.405128082517505
+offensive,char:ngu ,5.392732080206007
+offensive,char: vã,5.389774984004165
+offensive,char:gu ,5.241909933393379
+offensive,char: ngu,5.010352791568641
+offensive,char:ngu,4.972156662159544
+offensive,word:ỉa,4.971300990534768
+offensive,char:éo,4.899734116816112
+offensive,char:mẹ,4.872614480902332
+offensive,char:éo ,4.865497124136888
+offensive,word:đần,4.863631701766171
+offensive,char: mẹ,4.833151235640841
+offensive,word:cút,4.7195633407962845
+offensive,word:quay tay,4.684675186697956
+offensive,word:bỏ mẹ,4.680863225620201
+offensive,char:gu,4.6585191735914435
+offensive,char: éo,4.6549184007103
+hate,word:khựa,15.456414579640839
+hate,word:bò đỏ,11.468486530858804
+hate,word:phản động,10.053138306282188
+hate,char:khự,8.918020381441321
+hate,char: khự,8.868236427662262
+hate,char:khựa,8.828167172050083
+hate,char: khựa,8.778302291101356
+hate,char:hựa,8.218931960948844
+hate,char:khựa ,7.793406316521696
+hate,word:cali,7.4722401168552075
+hate,char:hự,7.37250015767688
+hate,word:đập chết,7.212440026047323
+hate,char:hựa ,7.211621663951604
+hate,char:ựa,7.156985601633627
+hate,word:đỏ,6.907198141413454
+hate,word:ấu dâm,6.4889409851743
+hate,word:chết,6.412490252902661
+hate,char:ựa ,6.307756082999602
+hate,word:nhật lùn,6.304515086159252
+hate,word:treo cổ,6.2453606965632815
+hate,word:que,6.240740718489936
+hate,word:bò,6.210082267734437
+hate,word:phú đĩ,5.88128373231588
+hate,word:ấu,5.849977808624559
+hate,word:đấm vào,5.729254579160809
+hate,word:đánh chết,5.539608788318004
+hate,word:phản,5.461190571967665
+hate,word:3 que,5.396422696127689
+hate,word:thái dúi,5.039088696913882
+hate,word:hồi mọi,4.987892589911592

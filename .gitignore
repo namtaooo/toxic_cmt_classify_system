@@ -1,0 +1,19 @@
+# data and models are hosted elsewhere
+data/raw/
+*.pt
+*.bin
+*.safetensors
+*.joblib
+models/*
+!models/README.md
+tier1_out/
+vncorenlp/
+cascade_run.csv
+# secrets
+kaggle.json
+.env
+*token*
+# python / jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

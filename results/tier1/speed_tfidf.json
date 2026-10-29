@@ -1,0 +1,18 @@
+{
+  "tag": "tfidf_lr",
+  "backbone": "tfidf",
+  "head": "linear",
+  "needs_seg": false,
+  "input_mode": "text_only",
+  "cpu": "x86_64 x2 threads",
+  "params_million": 0.342168,
+  "nonzero_params": 342168,
+  "ckpt_mb": 3.4691734313964844,
+  "cpu_b1_dynamic_ms": 0.9318992666658232,
+  "cpu_b1_dynamic_p95_ms": 1.4367217999961217,
+  "cpu_e2e_segment_ms": 0.0,
+  "cpu_e2e_total_ms": 0.9318992666658232,
+  "cpu_e2e_total_p95_ms": 1.4367217999961217,
+  "cpu_batch_per_s": 5513.5253190707135,
+  "train_seconds": 9.350463390350342
+}

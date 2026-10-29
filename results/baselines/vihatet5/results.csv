@@ -1,0 +1,4 @@
+stage,tag,seed,best_epoch,val_macro_f1,test_macro_f1,test_acc,f1_clean,f1_offensive,f1_hate,macro_f1_has_quote,macro_f1_no_quote,temperature,ece_raw,ece_cal,nll_raw,nll_cal,tau2,coverage_tier2,acc_decided_tier2,train_minutes,backbone,epochs_run,train_samples_per_s,peak_vram_train_mb
+t5_finetune,vihatet5_text_only,42,4,0.9302,0.9274,0.933,0.9498,0.9125,0.9199,0.9297,0.9241,1.3541,0.0378,0.0131,0.2532,0.2286,0.905,0.8587,0.9626,42.5625,vihatet5,4,24.7251,11315.2451
+t5_finetune,vihatet5_text_only,13,4,0.9217,0.9303,0.9357,0.9524,0.9141,0.9244,0.9331,0.9263,1.3493,0.0348,0.0175,0.2626,0.2406,0.925,0.7623,0.9622,42.4368,vihatet5,4,24.7805,11307.9951
+t5_finetune,vihatet5_text_only,2024,4,0.9293,0.926,0.9313,0.9484,0.9081,0.9216,0.9204,0.9343,1.2842,0.0353,0.0138,0.2565,0.2371,0.905,0.841,0.9578,42.5149,vihatet5,4,24.7188,11401.7295

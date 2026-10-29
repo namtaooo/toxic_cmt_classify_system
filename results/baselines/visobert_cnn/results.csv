@@ -1,0 +1,4 @@
+stage,tag,seed,best_epoch,val_macro_f1,test_macro_f1,test_acc,f1_clean,f1_offensive,f1_hate,macro_f1_has_quote,macro_f1_no_quote,temperature,ece_raw,ece_cal,nll_raw,nll_cal,tau2,coverage_tier2,acc_decided_tier2,train_minutes,backbone,epochs_run,train_samples_per_s,peak_vram_train_mb
+1_recipe,visobert_cnn_1_recipe,42,5,0.9151,0.8983,0.9069,0.9337,0.8731,0.888,0.9009,0.8943,0.8832,0.0321,0.0304,0.287,0.2839,0.94,0.7114,0.9727,19.8221,visobert_cnn,5,62.5063,3598.124
+1_recipe,visobert_cnn_1_recipe,13,5,0.9058,0.8996,0.9075,0.9336,0.8719,0.8933,0.9009,0.8976,0.8945,0.0393,0.0244,0.2844,0.2818,0.935,0.7391,0.967,19.7052,visobert_cnn,5,62.5471,3613.3193
+1_recipe,visobert_cnn_1_recipe,2024,5,0.9127,0.9021,0.9114,0.939,0.8789,0.8883,0.9058,0.8966,0.8767,0.0261,0.022,0.2908,0.2874,0.945,0.6543,0.9721,19.7024,visobert_cnn,5,62.542,3585.335

@@ -3,6 +3,9 @@
 Code and results for the paper *"A Calibrated Three-Tier Cascade for Moderating Vietnamese Forum Comments with PhoBERT-CNN"*
 by Pham Duc Hoai Nam, Ho Nguyen Bao Khanh and Nguyen Van Toan. [TODO: venue and link once published]
 
+- Code and anonymised data: <https://github.com/namtaooo/toxic_cmt_classify_system>
+- Trained tier-2 model: <https://huggingface.co/namcb1622/phobert_cnn_toxic_cmt>
+
 Comments from the Voz forum are classified as **clean**, **offensive** or **hate** by a cascade:
 
 | Tier | Model | Decides when | Role |
@@ -65,7 +68,7 @@ Comments inside the notebooks are in Vietnamese.
    ```
 3. **Tier 2**: run `notebooks/phobert_cnn_and_visobert.ipynb` on Kaggle with a GPU (`STAGE = "1_recipe"`, about 18 min per seed),
    (upload `data/` as a Kaggle dataset and set `DATA_DIR`; the notebook reads `train_clean.csv`, `val_clean.csv`, `test.csv`, so rename the files or edit `read_split`),
-   or download the trained checkpoint from the GitHub Release (see [`models/README.md`](models/README.md)).
+   or download the trained checkpoint from Hugging Face (see [`models/README.md`](models/README.md)).
 4. **Cascade from saved logits** (no GPU needed):
    ```bash
    python src/eval_cascade.py results/cascade/logits_tfidf.npz results/cascade/logits_phobert_cnn_1_recipe_seed42.npz 0.7374

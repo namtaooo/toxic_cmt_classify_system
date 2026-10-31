@@ -1,0 +1,111 @@
+{
+  "stage": "tran_original",
+  "tag": "phobert_cnn_tran_original",
+  "cfg": {
+    "model_name": "vinai/phobert-large",
+    "kernel_sizes": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "num_filters": 32,
+    "last_k": 1,
+    "max_len": 20,
+    "dropout": 0.3,
+    "batch_size": 64,
+    "epochs": 5,
+    "encoder_lr": 2e-05,
+    "head_lr": 2e-05,
+    "weight_decay": 0.0,
+    "warmup_ratio": 0.0,
+    "lr_schedule": "constant",
+    "input_mode": "text_only",
+    "label_smoothing": 0.0,
+    "llrd": 1.0,
+    "rdrop_alpha": 0.0,
+    "patience": null,
+    "use_fixes": false
+  },
+  "n_seeds": 3,
+  "val_macro_f1": {
+    "mean": 0.7243057379321266,
+    "std": 0.0026966364497603332
+  },
+  "test_macro_f1": {
+    "mean": 0.7140869157112909,
+    "std": 0.011664526156478717
+  },
+  "test_acc": {
+    "mean": 0.7471837488457987,
+    "std": 0.00883536377758504
+  },
+  "f1_clean": {
+    "mean": 0.8110038775591151,
+    "std": 0.0071919565738683315
+  },
+  "f1_offensive": {
+    "mean": 0.6672056344648091,
+    "std": 0.01830751348991008
+  },
+  "f1_hate": {
+    "mean": 0.6640512351099489,
+    "std": 0.00967200678859298
+  },
+  "macro_f1_has_quote": {
+    "mean": 0.7055240982607832,
+    "std": 0.008919214841934293
+  },
+  "macro_f1_no_quote": {
+    "mean": 0.7263088236730786,
+    "std": 0.01633422883549192
+  },
+  "ece_raw": {
+    "mean": 0.10999101122440502,
+    "std": 0.046508492237149104
+  },
+  "ece_cal": {
+    "mean": 0.032666482605102,
+    "std": 0.014331585146859905
+  },
+  "nll_raw": {
+    "mean": 0.7163903713226318,
+    "std": 0.07641338685038257
+  },
+  "nll_cal": {
+    "mean": 0.6297449270884196,
+    "std": 0.004853099769086677
+  },
+  "temperature": {
+    "mean": 1.6399651992312825,
+    "std": 0.39748195282018445
+  },
+  "coverage_tier2": {
+    "mean": 0.13259464450600186,
+    "std": 0.06036578249070786
+  },
+  "acc_decided_tier2": {
+    "mean": 0.9680048549655851,
+    "std": 0.028505913270075043
+  },
+  "best_epoch": {
+    "mean": 4.0,
+    "std": 1.0
+  },
+  "epochs_run": {
+    "mean": 5.0,
+    "std": 0.0
+  },
+  "train_minutes": {
+    "mean": 6.207059435049693,
+    "std": 0.11174728845910321
+  },
+  "train_samples_per_s": {
+    "mean": 204.85152919287216,
+    "std": 0.5318913200903785
+  },
+  "peak_vram_train_mb": {
+    "mean": 6556.337890625,
+    "std": 0.649519052838329
+  }
+}

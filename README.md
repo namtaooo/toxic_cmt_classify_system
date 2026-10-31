@@ -1,7 +1,7 @@
 # A Calibrated Three-Tier Cascade for Moderating Vietnamese Forum Comments
 
 Code and results for the paper *"A Calibrated Three-Tier Cascade for Moderating Vietnamese Forum Comments with PhoBERT-CNN"*
-by Pham Duc Hoai Nam, Ho Nguyen Bao Khanh and Nguyen Van Toan. [TODO: venue and link once published]
+by Pham Duc Hoai Nam, Ho Nguyen Bao Khanh and Nguyen Van Toan (Faculty of Information Technology, The University of Danang – University of Science and Technology). Manuscript, 2026.
 
 - Code and anonymised data: <https://github.com/namtaooo/toxic_cmt_classify_system>
 - Trained tier-2 model: <https://huggingface.co/namcb1622/phobert_cnn_toxic_cmt>
@@ -14,6 +14,8 @@ Comments from the Voz forum are classified as **clean**, **offensive** or **hate
 | 2 | PhoBERT-base + TextCNN head (label smoothing, LLRD, R-Drop) | calibrated confidence ≥ 0.85 | main classifier |
 | 3 | flagging | otherwise | blur the comment and queue it for human review |
 
+The tier-2 architecture follows PhoBERT-CNN by [Tran et al. (2023)](https://doi.org/10.1007/s00521-022-07745-w), with a modified convolutional head and training recipe; the architecture itself is not our contribution.
+
 Actions: clean → keep, offensive → blur, hate → hide.
 
 ## Main results (test set, 1,805 comments)
@@ -24,11 +26,28 @@ Actions: clean → keep, offensive → blur, hate → hide.
 | Tier 2 alone (PhoBERT-CNN, 3 seeds) | 0.9367 ± 0.0012 | 97 ms |
 | ViHateT5-base (3 seeds) | 0.9279 ± 0.0022 | 315 ms |
 | ViSoBERT-CNN (3 seeds) | 0.9000 ± 0.0019 | 113 ms |
+| Reconstruction of Tran et al., 160 tokens (3 seeds) | 0.9245 ± 0.0106 | – |
+| Reconstruction of Tran et al., 20 tokens (3 seeds) | 0.7141 ± 0.0117 | – |
 | **Three-tier cascade** | **0.9338** | **≈ 37–60 ms** (Kaggle CPU / laptop CPU) |
 
 Tier 1 resolves 63.4% of comments at 96.7% accuracy; 7.0% are flagged for review. Qwen2.5-3B as tier 3 was correct on 40.9% of the
 flagged comments versus 69.3% for tier 2, which is why tier 3 flags instead of classifying. All numbers can be checked against
 the files in [`results/`](results/README.md).
+
+## What the ablations show
+
+| Change to the deployed tier 2 (3 seeds each) | Test macro-F1 | Difference | p (Welch) |
+|---|---|---|---|
+| none (deployed) | 0.9367 ± 0.0012 | – | – |
+| without R-Drop | 0.9344 ± 0.0021 | −0.0023 | 0.20 |
+| without LLRD | 0.9354 ± 0.0038 | −0.0013 | 0.63 |
+| last hidden layer only | 0.9353 ± 0.0026 | −0.0014 | 0.45 |
+| 20 tokens instead of 160 | 0.7410 ± 0.0046 | −0.1957 | < 0.001 |
+
+- **Input length matters most.** Cutting comments to 20 tokens costs about 20 macro-F1 points.
+- **No single component of the training recipe is shown to help**: each change is within run-to-run noise with three seeds. Label smoothing was not ablated separately. R-Drop makes training about 1.5 times slower (18.2 vs 12.1 min per run).
+- **The reconstruction of Tran et al. is not a faithful reproduction** (no data augmentation; dropout, epochs and temperature scaling are our choices). With 160 tokens it is 1.2 points below the deployed configuration (not significant, p = 0.18), has 2.7 times the parameters and needs about twice the GPU latency.
+- **ViHSD**: the deployed configuration, unchanged, reaches 0.6556 ± 0.0099 on the ViHSD test set, below the 0.6746 and 0.6867 reported in earlier work. We make no claim that the results generalise beyond Voz. Files are in [`results/vihsd/`](results/vihsd/).
 
 ## Repository layout
 
@@ -41,8 +60,9 @@ src/
   eval_cascade.py      evaluate threshold configurations from saved logits
   demo_cascade.py      run the full cascade on text or a CSV file
   qwen_tier3.py        optional LLM tier 3 through Ollama or Hugging Face (experiment only)
+  convert_vihsd.py     convert the public ViHSD files to the notebook's input format
 notebooks/
-  phobert_cnn_and_visobert.ipynb   tier-2 training, ablation stages 0-3, ViSoBERT-CNN (Kaggle, T4 GPU)
+  phobert_cnn_and_visobert.ipynb   tier-2 training, ablation stages 0-3, single-component ablations, reconstruction of Tran et al. (STAGE = "tran_original"), ViSoBERT-CNN (Kaggle, T4 GPU)
   vihatet5_finetune.ipynb          ViHateT5-base baseline
 data/      anonymised train/val/test CSV files, dataset card and anonymisation script
 models/    how to download the trained checkpoints
@@ -88,7 +108,7 @@ Retrain tier 1 with your own scikit-learn version rather than loading a `.joblib
 ## Data, ethics and AI use
 
 The dataset contains offensive language and was collected from a public forum. Released files must be anonymised with
-`data/anonymize.py` (usernames and post links removed). Labels were pre-annotated by Gemini and verified by one author per class;
+`data/anonymize.py` (usernames and post links removed). Labels were pre-annotated by Gemini 3.1 Pro and verified by one author per class;
 inter-annotator agreement was not measured. The authors also used an AI assistant to help write code and draft the paper.
 
 ## Licence
@@ -99,10 +119,11 @@ Code: MIT (see [`LICENSE`](LICENSE)). Data: CC BY-NC 4.0, research use only. Pre
 ## Citation
 
 ```bibtex
-@inproceedings{nam2026cascade,
-  author    = {Pham, Duc Hoai Nam and Ho, Nguyen Bao Khanh and Nguyen, Van Toan},
-  title     = {A Calibrated Three-Tier Cascade for Moderating Vietnamese Forum Comments with {PhoBERT-CNN}},
-  booktitle = {[TODO: venue]},
-  year      = {2026}
+@misc{pham2026cascade,
+  author       = {Pham, Duc Hoai Nam and Ho, Nguyen Bao Khanh and Nguyen, Van Toan},
+  title        = {A Calibrated Three-Tier Cascade for Moderating Vietnamese Forum Comments with {PhoBERT-CNN}},
+  year         = {2026},
+  howpublished = {\url{https://github.com/namtaooo/toxic_cmt_classify_system}},
+  note         = {Manuscript}
 }
 ```

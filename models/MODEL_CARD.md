@@ -46,7 +46,7 @@ class ratio about 50/30/20 by design. Inter-annotator agreement was not measured
 
 ## Limitations and intended use
 
-- Trained on a single forum; performance on other platforms is unknown.
+- Trained on a single forum. On the public ViHSD benchmark the same configuration, trained without change, reached macro-F1 0.6556 ± 0.0099 (three runs), below earlier published systems, so do not expect the Voz-level scores elsewhere.
 - The test set has far more hate than real traffic, so precision on hate may be lower in deployment.
 - Intended for research and for assisting human moderators, not for fully automatic decisions about people.
 
